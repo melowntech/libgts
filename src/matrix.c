@@ -448,7 +448,7 @@ guint gts_matrix_compatible_row (GtsMatrix * A,
   g_return_val_if_fail (A != NULL, 0);
 
   na1 = gts_vector_scalar (A1, A1);
-  if (na1 == 0.0)
+  if (fabs(na1) < 1.e-12)
     return n;
 
   /* normalize row */
