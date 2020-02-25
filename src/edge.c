@@ -19,7 +19,7 @@
 
 #include "gts.h"
 
-gboolean gts_allow_floating_edges = FALSE;
+__thread gboolean gts_allow_floating_edges = FALSE;
 
 static void edge_destroy (GtsObject * object)
 {
