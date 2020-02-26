@@ -198,11 +198,12 @@ INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/src -I$(includedir) \
 
 LDADD = $(top_builddir)/src/libgts.la -lm
 DEPS = $(top_builddir)/src/libgts.la
-TESTS = cartesian.sh too_close.sh
+TESTS = cartesian.sh two_segments.sh too_close.sh
 EXTRA_DIST = \
 	cartesian.sh \
 	cartesian_speed.sh \
 	random_speed.sh \
+	two_segments.gts two_segments.sh \
 	too_close.gts too_close.sh
 
 all: all-am
