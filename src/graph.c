@@ -23,7 +23,7 @@
 
 /* GtsGNode */
 
-__thread gboolean gts_allow_floating_gnodes = FALSE;
+GTS_THREADLOCAL gboolean gts_allow_floating_gnodes = FALSE;
 
 static void gnode_remove_container (GtsContainee * i, GtsContainer * c)
 {

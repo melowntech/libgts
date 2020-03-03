@@ -44,9 +44,10 @@ extern "C" {
 #  else /* not GTS_COMPILATION */
 #    define GTS_C_VAR extern __declspec(dllimport)
 #  endif /* not GTS_COMPILATION */
+#  define GTS_THREADLOCAL __declspec(thread)
 #else /* not NATIVE_WIN32 */
 #  define GTS_C_VAR extern
-#  define GTS_C_THREADLOCAL_VAR extern __thread
+#  define GTS_THREADLOCAL __thread
 #endif /* not NATIVE_WIN32 */
 
 GTS_C_VAR const guint gts_major_version;
@@ -450,7 +451,7 @@ struct _GtsVertexClass {
 					   GtsObject *);
 };
 
-GTS_C_THREADLOCAL_VAR 
+extern GTS_THREADLOCAL 
 gboolean      gts_allow_floating_vertices;
 
 GtsVertexClass * gts_vertex_class          (void);
@@ -589,7 +590,7 @@ struct _GtsEdgeClass {
   GtsSegmentClass parent_class;
 };
 
-GTS_C_THREADLOCAL_VAR 
+extern GTS_THREADLOCAL 
 gboolean      gts_allow_floating_edges;
 
 GtsEdgeClass * gts_edge_class                     (void);
@@ -742,7 +743,7 @@ struct _GtsFaceClass {
   GtsTriangleClass parent_class;
 };
 
-GTS_C_THREADLOCAL_VAR 
+extern GTS_THREADLOCAL 
 gboolean      gts_allow_floating_faces;
 
 GtsFaceClass * gts_face_class                       (void);
@@ -2106,7 +2107,7 @@ gfloat          gts_gnode_move_cost            (GtsGNode * n,
 						GtsGraph * dst);
 gfloat          gts_gnode_weight               (GtsGNode * n);
 
-GTS_C_THREADLOCAL_VAR
+extern GTS_THREADLOCAL
 gboolean        gts_allow_floating_gnodes;
 
 /* GtsNGNode: graph.c */

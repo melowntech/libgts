@@ -19,7 +19,7 @@
 
 #include "gts.h"
 
-__thread gboolean gts_allow_floating_faces = FALSE;
+GTS_THREADLOCAL gboolean gts_allow_floating_faces = FALSE;
 
 static void face_destroy (GtsObject * object)
 {

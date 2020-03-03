@@ -20,7 +20,7 @@
 #include <math.h>
 #include "gts.h"
 
-__thread gboolean gts_allow_floating_vertices = FALSE;
+GTS_THREADLOCAL gboolean gts_allow_floating_vertices = FALSE;
 
 static void vertex_destroy (GtsObject * object)
 {
